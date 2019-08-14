@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>TinyRemind | View Topic</title>
+</head>
+<body>
+
+        <h1>{{ topic.title }}</h1>
+
+        <div>
+                <a href="/">Back</a>
+        </div>
+        {% if topic.url %}
+        <div>
+                URL: <a href="{{ topic.url }}">{{ topic.url }}</a>
+        </div>
+        {% endif %}
+
+        {% if topic.comment %}
+        <div>
+                Comment: <p>{{ topic.comment }}</p>
+        </div>
+        {% endif %}
+
+        <div>
+                Level: {{ topic.level }}
+        </div>
+        <div>
+                Created at: {{ topic.created_at }}
+        </div>
+
+        <div>
+                Last review: {{ topic.last_review_at }}
+        </div>
+
+        {% if is_due %}
+        <div>
+                <form action="/topic/{{ topic.id }}/review" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Review</button>
+                </form>
+        </div>
+        {% endif %}
+</body>
+</html>

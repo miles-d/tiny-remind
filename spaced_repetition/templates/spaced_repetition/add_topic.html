@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>TinyRemind | Add Topic</title>
+</head>
+<body>
+        <h1>Add topic</h1>
+
+        <a href="/">Back</a>
+
+        <form action="/add_topic" method="post">
+                {% csrf_token %}
+                <div>
+                        <label for="title">Title: </label>
+                        <input name="title" id="title" type="text" required>
+                </div>
+                <div>
+                        <label for="url">URL: </label>
+                        <input name="url" id="url" type="text">
+                </div>
+                <div>
+                        <label for="comment">Comment: </label>
+                        <textarea id="comment" name="comment" cols="30" rows="10"></textarea>
+                </div>
+                <div>
+                        <button type="submit">Add</button>
+                </div>
+        </form>
+</body>
+</html>

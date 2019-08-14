@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>TinyRemind</title>
+</head>
+<body>
+        <h1>Remind</h1>
+
+        <a href="/add_topic">Add topic</a>
+
+        <ol>
+                {% for topic in topics %}
+                <li>
+                        <a href="/topic/{{ topic.id }}">{{ topic.title }}</a>
+                        {% if topic.url %}
+                        | <a href="{{ topic.url }}">link</a>
+                        {% endif %}
+                        {% if topic.is_due %}
+                        | Ready to review
+                        {% endif %}
+                </li>
+                {% endfor %}
+        </ol>
+</body>
+</html>
