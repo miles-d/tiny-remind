@@ -2,8 +2,8 @@ from datetime import datetime, date
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .models import Topic
+from django.conf import settings
 
-SCHEDULE = (1, 7, 30)
 
 # Create your views here.
 def index(request):
@@ -13,7 +13,7 @@ def index(request):
             'id': t.id,
             'title': t.title,
             'url': t.url,
-            'is_due': t.is_due(datetime.now().date(), SCHEDULE)
+            'is_due': t.is_due(datetime.now().date(), settings.REMIND_SCHEDULE)
             })
     topics.sort(key=(lambda t: t['is_due']), reverse=True)
     return render(request, 'spaced_repetition/index.html', { 'topics': topics })
@@ -40,14 +40,14 @@ def add_topic(request):
 
 def view_topic(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
-    is_due = topic.is_due(datetime.now().date(), SCHEDULE)
+    is_due = topic.is_due(datetime.now().date(), settings.REMIND_SCHEDULE)
     return render(request, 'spaced_repetition/view_topic.html', { 'topic': topic,
         'is_due': is_due })
 
 
 def review_topic(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
-    topic.review(datetime.now().date(), SCHEDULE)
+    topic.review(datetime.now().date(), settings.REMIND_SCHEDULE)
     try:
         topic.save()
         return HttpResponseRedirect('/')
