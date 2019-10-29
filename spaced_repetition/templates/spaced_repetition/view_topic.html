@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <title>TinyRemind | View Topic</title>
-</head>
-<body>
+{% extends "spaced_repetition/base.html" %}
 
+{% block title %}TinyRemind | View Topic{% endblock %}
+
+{% block content %}
         <h1>{{ topic.title }}</h1>
 
         <div>
@@ -49,5 +46,4 @@
                 </form>
         </div>
         {% endif %}
-</body>
-</html>
+{% endblock %}

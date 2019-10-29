@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <title>TinyRemind | Add Topic</title>
-</head>
-<body>
+{% extends "spaced_repetition/base.html" %}
+
+{% block title %}TinyRemind | Add Topic{% endblock %}
+
+{% block content %}
         <h1>Add topic</h1>
 
         <a href="/">Back</a>
@@ -27,5 +25,4 @@
                         <button type="submit">Add</button>
                 </div>
         </form>
-</body>
-</html>
+{% endblock %}

@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <title>Tiny Remind | Confirm Deletion</title>
-</head>
-<body>
+{% extends "spaced_repetition/base.html" %}
+
+{% block title %}Tiny Remind | Confirm Deletion{% endblock %}
+
+{% block content %}
         <h1>Confirm deletion of topic "{{ topic.title }}"</h1>
 
         <form action="/topic/{{ topic.id }}/delete" method="POST">
@@ -12,5 +10,4 @@
                 <button type="submit">Yes, delete</button>
         </form>
         <a href="/topic/{{ topic.id }}">No, go back</a>
-</body>
-</html>
+{% endblock %}
