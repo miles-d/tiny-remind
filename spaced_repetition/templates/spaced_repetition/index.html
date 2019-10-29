@@ -14,7 +14,7 @@
                 <li>
                         <a href="/topic/{{ topic.id }}">{{ topic.title }}</a>
                         {% if topic.url %}
-                        | <a href="{{ topic.url }}">link</a>
+                        | <a href="{{ topic.url }}" target="_blank">link</a>
                         {% endif %}
                         {% if topic.is_due %}
                         | Ready to review
