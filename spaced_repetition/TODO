@@ -3,8 +3,8 @@ NEXT:
   - Misc
     - [X] Have a common html template
   - List page
-    - [ ] darker background
-    - [ ] Different font (mono or sans-serif)
+    - [X] darker background
+    - [X] Different font (mono or sans-serif)
     - [ ] table-like layout (grid)
     - [ ] More space between things
 - [ ] Allow review from the list page
