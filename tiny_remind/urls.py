@@ -24,4 +24,6 @@ urlpatterns = [
     path('topic/<int:topic_id>', views.view_topic),
     path('topic/<int:topic_id>/review', views.review_topic),
     path('topic/<int:topic_id>/edit', views.edit_topic),
+    path('topic/<int:topic_id>/confirm_deletion', views.confirm_deletion),
+    path('topic/<int:topic_id>/delete', views.delete_topic),
 ]

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>Tiny Remind | Confirm Deletion</title>
+</head>
+<body>
+        <h1>Confirm deletion of topic "{{ topic.title }}"</h1>
+
+        <form action="/topic/{{ topic.id }}/delete" method="POST">
+                {% csrf_token %}
+                <button type="submit">Yes, delete</button>
+        </form>
+        <a href="/topic/{{ topic.id }}">No, go back</a>
+</body>
+</html>

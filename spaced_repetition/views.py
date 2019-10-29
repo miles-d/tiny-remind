@@ -67,3 +67,18 @@ def edit_topic(request, topic_id):
         return HttpResponseRedirect('/topic/' + str(topic_id))
     else:
         return render(request, 'spaced_repetition/edit_topic.html', { 'topic': topic })
+
+
+def confirm_deletion(request, topic_id):
+    topic = Topic.objects.get(id=topic_id)
+    return render(request, 'spaced_repetition/confirm_deletion.html', { 'topic': topic })
+
+
+def delete_topic(request, topic_id):
+    topic = Topic.objects.get(id=topic_id)
+    try:
+        topic.delete()
+    except Exception:
+        return HttpResponseRedirect('/topic/' + str(topic_id) + '/confirm_deletion')
+
+    return HttpResponseRedirect('/')
