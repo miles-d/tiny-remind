@@ -1,0 +1,32 @@
+NEXT:
+- Nicer design
+  - Misc
+    - [X] Have a common html template
+  - List page
+    - [ ] darker background
+    - [ ] Different font (mono or sans-serif)
+    - [ ] table-like layout (grid)
+    - [ ] More space between things
+- [ ] Allow review from the list page
+- [X] Open links in a new window
+  - [X] From the index page
+  - [X] From the view topic page
+- Visit Topic view
+  - [X] view_topic should have a form instead just button with "Review"
+- List view
+  - [X] show which topics are due
+  - [ ] sort topics by next review date?
+- [X] Editing
+  1. Route
+  2. Template
+  3. Saving
+  4. Adding link on the View page
+  5. Back button!
+- [X] Deleting
+  1. Form
+  2. Confirmation page? Yes.
+
+
+
+- Users
+- Custom setting to set schedule intervals
