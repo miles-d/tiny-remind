@@ -5,7 +5,6 @@ from .models import Topic
 from django.conf import settings
 
 
-# Create your views here.
 def index(request):
     topics = []
     for t in Topic.objects.all():
@@ -21,8 +20,6 @@ def index(request):
 
 def add_topic(request):
     if request.POST:
-        print(request.POST)
-
         topic = Topic(
                 title=request.POST['title'],
                 url=request.POST['url'],
@@ -53,3 +50,20 @@ def review_topic(request, topic_id):
         return HttpResponseRedirect('/')
     except Exception:
         return HttpResponseRedirect('/topic/' + topic_id)
+
+
+def edit_topic(request, topic_id):
+    topic = Topic.objects.get(id=topic_id)
+
+    if request.POST:
+        topic.title = request.POST['title']
+        topic.url = request.POST['url']
+        topic.comment = request.POST['comment']
+
+        try:
+            topic.save()
+        except Exception:
+            return HttpResponseRedirect('/topic/' + str(topic_id) + '/edit')
+        return HttpResponseRedirect('/topic/' + str(topic_id))
+    else:
+        return render(request, 'spaced_repetition/edit_topic.html', { 'topic': topic })
